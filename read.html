@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Primary Spelling</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/features.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Primary Spelling</a>
+        </div>
+
+      </div>
+    </nav>
+    
+    <div class="container" ng-app="Spelling" ng-controller="ReadController">
+
+      <div class="jumbotron hero-spacer">
+            <h1> <img id="iconRead" src="./img/{{resultImageName}}" alt="Read-Cover-Spell" width="113" height="120" /> Look-Cover-Spell </h1>
+            <p ng-show="!finishedTest">Read the word and then type it into the box next to it.</p>
+            <p ng-show="finishedTest">{{resultText}}</p>
+      </div>
+
+      <div id="quizArea" class="row text-center">
+
+        <div class="col-lg-4 col-md-6 hero-feature">
+          <div class="thumbnail">
+            <div class="caption">
+              <h3>Read the word then ...</h3>
+              {{wordScreen}}
+            </div>
+          </div>
+        </div>
+
+
+      <div class="col-lg-4 col-md-6 hero-feature">
+          <div class="thumbnail">
+              <div class="caption">
+                  <h3>type it into the box</h3>
+                  <p>
+                      <input id="inputTarget" type="text" ng-model="typedText" />
+                      <button class="btn btn-primary" ng-click="checkSpelling(typedText)" ng-disabled="finishedTest">
+                          Go
+                      </button>
+                  </p>
+              </div>
+          </div>
+      </div>
+
+
+        <div class="col-lg-4 col-md-6 hero-feature">
+          <div class="thumbnail">
+            <div class="caption">
+
+              <h3>Score : {{score}}/{{scoreoutof}}</h3>
+
+              <p ng-repeat="result in results">
+                <strong>{{result.text}}</strong>
+                <img ng-src="img/{{result.imageName}}" width="20" height="20"/>
+              </p>
+
+              <p>{{output}}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <footer>
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Copyright &copy; SystemBrook 2013 &middot; Facebook &middot; Twitter &middot; Google+</p>
+          </div>
+        </div>
+      </footer>
+      
+    </div>
+
+  <!-- javascript -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="lib/angular.min.js"></script>
+  <script src="js/controllers/ReadController.js"></script>
+  <script src="js/services/SpellingListService.js"></script>
+
+  </body>
+
+</html>
