@@ -30,13 +30,13 @@ angular.module("Spelling", []).controller("ReadController",
         if (typedText === $scope.word)
         {
             $scope.score++;
-            $scope.imageName = "tick.jpg";
-            $scope.results.push({text: typedText, imageName: "tick.jpg"})
+            //$scope.imageName = "tick.ico";
+            $scope.results.push({text: typedText, imageName: "tick.ico"})
         }
         else
         {
-            $scope.imageName = "cross.jpg";
-            $scope.results.push({text: typedText, imageName: "cross.jpg"})
+            //$scope.imageName = "cross.ico";
+            $scope.results.push({text: typedText, imageName: "cross.ico"})
         }
 
         $scope.typedText = '';

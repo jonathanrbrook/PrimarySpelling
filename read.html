@@ -71,14 +71,12 @@
 
                   <canvas id="canvas">Canvas is not supported in your browser.</canvas>
 
-                  <h3>Score : {{score}}/{{scoreoutof}}</h3>
+                  <h2>Score : {{score}}/{{scoreoutof}}</h2>
 
-                  <div ng-repeat="result in results">
+                  <span ng-repeat="result in results">
                       <strong>{{result.text}}</strong>
                       <img ng-src="img/{{result.imageName}}" width="10" height="10"/>
-                  </div>
-
-                  <p>{{output}}</p>
+                  </span>
               </div>
           </div>
       </div>
