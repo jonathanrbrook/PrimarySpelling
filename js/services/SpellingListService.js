@@ -17,10 +17,7 @@ angular.module("Spelling").factory("spellingList",
                         {spelling:'float'}];
                     break;
                 case 'year2List6':
-                    return [{spelling:'say'},
-                        {spelling:'pay'},
-                        {spelling:'hay'},
-                        {spelling:'play'}];
+                    return [{spelling:'play'}];
                     break;
                 default:
                     return [{spelling:'List unknown'}];

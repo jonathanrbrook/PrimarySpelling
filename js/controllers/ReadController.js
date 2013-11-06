@@ -1,11 +1,17 @@
 var app = angular.module("Spelling", []);
 
-app.config(function($locationProvider){
+app.config(function($routeProvider, $locationProvider){
+   /* $routeProvider.when('/',
+        {
+            templateUrl:"index.html",
+            controller: "ReadController"
+        }
+    )*/
     $locationProvider.html5Mode(true).hashPrefix('!');
 });
 
 app.controller("ReadController",
-    function($scope, $location, $window, spellingList) {
+    function($scope, $location, $window, $route, spellingList) {
     $scope.spellings = spellingList.getList($location.search().listName);
     $scope.spellingIndex = 0;
     $scope.word = $scope.spellings[$scope.spellingIndex].spelling;
@@ -15,9 +21,9 @@ app.controller("ReadController",
     $scope.results = [];
     $scope.finishedTest = false;
     $scope.scoreoutof = $scope.spellings.length;
-    $scope.resultImageName = "fireworks.jpg";
+    $scope.resultImageName = "blank.gif";
     $scope.resultText = "Not quite. Try again!";
-    $scope.debugOutput =  $location.search().listName;
+    $scope.debugOutput =  "";
     $scope.showWord = true;
     $scope.userInputActivate = false;
     $scope.myQs = $location.search();
@@ -29,6 +35,11 @@ app.controller("ReadController",
             $scope.wordScreen = '';
         }
     });
+
+    $scope.restart = function() {
+        location.reload();
+    };
+
 
     $scope.checkSpelling = function(typedText) {
 
@@ -55,13 +66,18 @@ app.controller("ReadController",
         else
         {
             $scope.finishedTest = true;
+
+            $('#resultsModal').modal('show');
+
             if ($scope.score == $scope.scoreoutof)
             {
-                $scope.resultImageName = "unicorn.jpg";
+                $( "#canvas" ).show();
                 $scope.resultText = "Well done. Top speller!"
             }
+
             else
             {
+                $( "#canvas" ).hide();
                 $scope.resultImageName = "thumbsdown.jpg";
             }
         }

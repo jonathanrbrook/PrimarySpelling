@@ -34,52 +34,49 @@
 
       <div class="jumbotron hero-spacer">
 
-          <div class="row text-center">
-
-              <div class="col-lg-8 col-md-6 hero-feature">
-                  <h1>Read-Cover-Spell</h1>
-                  <p ng-show="!finishedTest">Read the word and then type it into the box next to it.</p>
-                  <p ng-show="finishedTest">{{resultText}}</p>
-
-                  <div class="row text-center">
-
-                      <div class="col-lg-6 col-md-6 hero-spacer container">
-                          <div class="thumbnail">
-                              <div class="caption">
-                                  <h3>{{wordScreen}}</h3>
-                              </div>
-                          </div>
-                      </div>
+              <h1>Read-Cover-Spell</h1>
+              <p ng-show="!finishedTest">Read the word and then type it into the box next to it.</p>
+              <p ng-show="finishedTest">{{resultText}}</p>
 
 
-                      <div class="col-lg-6 col-md-6 hero-spacer container">
-                          <div class="thumbnail">
-                              <div class="caption">
-                                  <p>
-                                      <input id="inputTarget" type="text" ng-model="typedText" />
-                                      <button class="btn btn-primary" ng-click="checkSpelling(typedText)" ng-disabled="finishedTest">
-                                          Go
-                                      </button>
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
+              <div class="row text-center">
+                  <div class="col-lg-6 col-md-6 hero-spacer container">
+                      <p>
+                        <h3>{{wordScreen}}</h3>
+                      </p>
+                      <p>
+                        <input id="inputTarget" type="text" ng-model="typedText" />
+                        <button class="btn btn-primary" ng-click="checkSpelling(typedText)" ng-disabled="finishedTest">
+                           Go
+                        </button>
+                      </p>
                   </div>
 
+                  <div class="col-lg-6 col-md-6 hero-spacer container">
+                      <h2>Score : {{score}}/{{scoreoutof}}</h2>
+                      <span ng-repeat="result in results">
+                          <strong>{{result.text}}</strong>
+                      </span>
+                  </div>
               </div>
-              <div class="col-lg-4 col-md-6 hero-feature">
 
-                  <canvas id="canvas">Canvas is not supported in your browser.</canvas>
-
-                  <h2>Score : {{score}}/{{scoreoutof}}</h2>
-
-                  <span ng-repeat="result in results">
-                      <strong>{{result.text}}</strong>
-                      <img ng-src="img/{{result.imageName}}" width="10" height="10"/>
-                  </span>
-              </div>
-          </div>
       </div>
+
+        <div class="modal fade" id="resultsModal" tabindex="-1"
+             role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content fireworkBackground">
+                    <h1 class="whiteText center">{{resultText}}</h1>
+                    <h2 class="whiteText center">Score : {{score}}/{{scoreoutof}}</h2>
+                    <canvas id="canvas">Canvas is not supported in your browser.</canvas>
+                    <!--<div class="center"><img ng-src="img/{{resultImageName}}"/></div>-->
+                    <footer>
+                        &nbsp;<button type="button" class="btn btn-default center" data-dismiss="modal" ng-click="restart()">Restart</button>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
 
       <footer>
         <div class="row">
@@ -99,6 +96,7 @@
   <script src="lib/angular.min.js"></script>
   <script src="js/controllers/ReadController.js"></script>
   <script src="js/services/SpellingListService.js"></script>
+  <script src="js/services/ui.bootstrap.modal.js"></script>
   <script src="js/fireworks.js"></script>
 
   </body>

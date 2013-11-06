@@ -13,3 +13,14 @@ footer {
 	margin: 10px 0;
 }
 
+.fireworkBackground {
+    background: #000;
+}
+
+.whiteText {
+    color: #ffffff;
+}
+
+.center {
+    text-align: center;
+}
