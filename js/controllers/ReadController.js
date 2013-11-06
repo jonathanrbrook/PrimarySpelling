@@ -39,8 +39,6 @@ app.controller("ReadController",
 
     $scope.checkSpelling = function(typedText) {
 
-        $scope.debugOutput = $scope.debugOutput + "<div>function check Spelling called</div>";
-
         $("#inputTarget").focus();
 
         if (typedText === $scope.word)

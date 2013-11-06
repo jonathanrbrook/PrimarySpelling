@@ -13,8 +13,8 @@ window.requestAnimFrame = ( function() {
 var canvas = document.getElementById( 'canvas' ),
     ctx = canvas.getContext( '2d' ),
 // full screen dimensions
-    cw = window.innerWidth/2,
-    ch = window.innerHeight/2,
+    cw = window.innerWidth,
+    ch = window.innerHeight,
 // firework collection
     fireworks = [],
 // particle collection
