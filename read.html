@@ -24,34 +24,35 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.html"><img src="img/fireworksHeader.png" width="30" height="30">&nbsp;Fireworks Spelling</a>
+              <a class="navbar-brand" href="index.html"><img src="img/fireworksHeader.png" width="30" height="30">
+                  &nbsp;Fireworks Spelling
+              </a>
           </div>
 
       </div>
   </nav>
     
     <div class="container" ng-app="Spelling" ng-controller="ReadController">
-
       <div class="jumbotron hero-spacer">
 
               <h1>Read-Cover-Spell</h1>
               <p ng-show="!finishedTest">Read the word and then type it into the box next to it.</p>
               <p ng-show="finishedTest">{{resultText}}</p>
 
-
               <div class="row text-center">
                   <div class="col-lg-6 col-md-6 hero-spacer container">
+
+                    <form ng-submit="checkSpelling(typedText)">
                       <p>
                         <h3>{{wordScreen}}</h3>
                       </p>
                       <p>
-                        <input id="inputTarget" type="text" ng-model="typedText" />
-                        <button class="btn btn-primary" ng-click="checkSpelling(typedText)" ng-disabled="finishedTest">
-                           Go
-                        </button>
+                        <input id="inputTarget" type="text" ng-model="typedText" autofocus />
+                        <button class="btn btn-primary">Go</button>
                       </p>
-                  </div>
+                    </form>
 
+                  </div>
                   <div class="col-lg-6 col-md-6 hero-spacer container">
                       <h2>Score : {{score}}/{{scoreoutof}}</h2>
                       <span ng-repeat="result in results">
@@ -59,35 +60,33 @@
                       </span>
                   </div>
               </div>
-
       </div>
 
-        <div class="modal fade" id="resultsModal" tabindex="-1"
-             role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content fireworkBackground">
-                    <h1 class="whiteText center">{{resultText}}</h1>
-                    <h2 class="whiteText center">Score : {{score}}/{{scoreoutof}}</h2>
-                    <canvas id="canvas">Canvas is not supported in your browser.</canvas>
-                    <!--<div class="center"><img ng-src="img/{{resultImageName}}"/></div>-->
-                    <footer>
-                        &nbsp;<button type="button" class="btn btn-default center" data-dismiss="modal" ng-click="restart()">Restart</button>
-                    </footer>
-                </div>
+      <div class="modal fade" id="resultsModal" tabindex="-1"
+         role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content fireworkBackground">
+                <h1 class="whiteText center">{{resultText}}</h1>
+                <h2 class="whiteText center">Score : {{score}}/{{scoreoutof}}</h2>
+                <canvas id="canvas">Canvas is not supported in your browser.</canvas>
+                <!--<div class="center"><img ng-src="img/{{resultImageName}}"/></div>-->
+                <footer>
+                    &nbsp;<button type="button" class="btn btn-default center" data-dismiss="modal" ng-click="restart()">Restart</button>
+                </footer>
             </div>
-        </div>
-
+         </div>
+      </div>
 
       <footer>
         <div class="row">
           <div class="col-lg-12">
             <p>Copyright &copy; SystemBrook 2013 &middot; Facebook &middot; Twitter &middot; Google+</p>
           </div>
-            <div>{{debugOutput}}</div>
+          <div>{{debugOutput}}</div>
 
         </div>
       </footer>
-      
+
     </div>
 
   <!-- javascript -->
@@ -96,7 +95,7 @@
   <script src="lib/angular.min.js"></script>
   <script src="js/controllers/ReadController.js"></script>
   <script src="js/services/SpellingListService.js"></script>
-  <script src="js/services/ui.bootstrap.modal.js"></script>
+  <!--<script src="js/bootstrap-.modal.js"></script>-->
   <script src="js/fireworks.js"></script>
 
   </body>

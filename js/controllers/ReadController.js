@@ -19,14 +19,11 @@ app.controller("ReadController",
     $scope.score = 0;
     $scope.imageName = 'blank.gif';
     $scope.results = [];
-    $scope.finishedTest = false;
     $scope.scoreoutof = $scope.spellings.length;
     $scope.resultImageName = "blank.gif";
     $scope.resultText = "Not quite. Try again!";
     $scope.debugOutput =  "";
     $scope.showWord = true;
-    $scope.userInputActivate = false;
-    $scope.myQs = $location.search();
 
     $scope.$watch('typedText', function() {
 
@@ -40,8 +37,9 @@ app.controller("ReadController",
         location.reload();
     };
 
-
     $scope.checkSpelling = function(typedText) {
+
+        $scope.debugOutput = $scope.debugOutput + "<div>function check Spelling called</div>";
 
         $("#inputTarget").focus();
 
@@ -65,8 +63,6 @@ app.controller("ReadController",
         }
         else
         {
-            $scope.finishedTest = true;
-
             $('#resultsModal').modal('show');
 
             if ($scope.score == $scope.scoreoutof)
@@ -74,7 +70,6 @@ app.controller("ReadController",
                 $( "#canvas" ).show();
                 $scope.resultText = "Well done. Top speller!"
             }
-
             else
             {
                 $( "#canvas" ).hide();
