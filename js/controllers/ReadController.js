@@ -1,6 +1,12 @@
-angular.module("Spelling", []).controller("ReadController",
-    function($window, $scope, spellingList) {
-    $scope.spellings = spellingList;
+var app = angular.module("Spelling", []);
+
+app.config(function($locationProvider){
+    $locationProvider.html5Mode(true).hashPrefix('!');
+});
+
+app.controller("ReadController",
+    function($scope, $location, $window, spellingList) {
+    $scope.spellings = spellingList.getList($location.search().listName);
     $scope.spellingIndex = 0;
     $scope.word = $scope.spellings[$scope.spellingIndex].spelling;
     $scope.wordScreen = $scope.word;
@@ -9,11 +15,12 @@ angular.module("Spelling", []).controller("ReadController",
     $scope.results = [];
     $scope.finishedTest = false;
     $scope.scoreoutof = $scope.spellings.length;
-    $scope.resultImageName = "owlReading.jpg";
+    $scope.resultImageName = "fireworks.jpg";
     $scope.resultText = "Not quite. Try again!";
-    $scope.debugoutput = "n/a";
+    $scope.debugOutput =  $location.search().listName;
     $scope.showWord = true;
     $scope.userInputActivate = false;
+    $scope.myQs = $location.search();
 
     $scope.$watch('typedText', function() {
 
@@ -30,12 +37,10 @@ angular.module("Spelling", []).controller("ReadController",
         if (typedText === $scope.word)
         {
             $scope.score++;
-            //$scope.imageName = "tick.ico";
             $scope.results.push({text: typedText, imageName: "tick.ico"})
         }
         else
         {
-            //$scope.imageName = "cross.ico";
             $scope.results.push({text: typedText, imageName: "cross.ico"})
         }
 
@@ -53,7 +58,6 @@ angular.module("Spelling", []).controller("ReadController",
             if ($scope.score == $scope.scoreoutof)
             {
                 $scope.resultImageName = "unicorn.jpg";
-                //$scope.resultImageName = "thumbsup.jpg";
                 $scope.resultText = "Well done. Top speller!"
             }
             else
