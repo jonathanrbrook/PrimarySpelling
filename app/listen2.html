@@ -34,8 +34,45 @@
 
       <div class="jumbotron hero-spacer">
         <h1>Listen-Cover-Spell</h1>
-        <p>Coming soon</p>
+        <p>Listen to the word and then type it into the box</p>
       </div>
+      
+      <hr>
+
+      <div class="row text-center">
+
+        <div class="col-lg-4 col-md-6 hero-feature">
+          <div class="thumbnail">
+            <div class="caption">
+              <h3>Enter here</h3>
+              <p id="readWord">{{name || "Umbrella"}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 hero-feature">
+          <div class="thumbnail">
+            <div class="caption">
+              <h3>Type the word here</h3>
+			  <p>
+                  <label>
+                      <input type="text" ng-model="name"/>
+                  </label>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 hero-feature">
+          <div class="thumbnail">
+            <div class="caption">
+              <h3>Results</h3>
+              <p>######</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.row -->
       
       <hr>
 
@@ -47,12 +84,11 @@
         </div>
       </footer>
       
-    </div><!-- /.container -->
+    </div>
 
-  <!-- javascript -->
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="./lib/angular.min.js"></script>
+  <script src="lib/jquery.js"></script>
+  <script src="lib/bootstrap.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
 
   
   </body>
