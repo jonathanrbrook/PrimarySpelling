@@ -1,14 +1,4 @@
-var app = angular.module("Spelling", []);
 
-app.config(function($routeProvider, $locationProvider){
-   /* $routeProvider.when('/',
-        {
-            templateUrl:"index.html",
-            controller: "ReadController"
-        }
-    )*/
-    $locationProvider.html5Mode(true).hashPrefix('!');
-});
 
 app.controller("ReadController",
     function($scope, $location, $window, $route, spellingList) {

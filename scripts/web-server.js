@@ -2,9 +2,11 @@
 
 var util = require('util'),
     http = require('http'),
+    path = require('path'),
     fs = require('fs'),
     url = require('url'),
     events = require('events');
+
 
 var DEFAULT_PORT = 8000;
 
