@@ -1,4 +1,4 @@
-angular.module("Spelling").factory("spellingList",
+app.factory("spellingList",
     function () {
         return { getList : function (listName){
             switch (listName) {
