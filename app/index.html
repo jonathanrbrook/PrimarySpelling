@@ -31,10 +31,12 @@
 
     <div class="container">
 
-    <ng-view></ng-view>
+        <div class="jumbotron hero-spacer" ng-app="app">
+            <ng-view></ng-view>
 
 
 
+        </div>
 
       <footer>
         <div class="row">
@@ -46,10 +48,12 @@
       
     </div>
 
-  <script src="js/app.js"></script>
-  <script src="js/readController.js"></script>
-  <script src="lib/jquery.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/jquery/jquery-1.9.1.js"></script>
   <script src="lib/bootstrap.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services/spellingListService.js"></script>
+  <script src="js/controllers/readController.js"></script>
 
   </body>
 </html>

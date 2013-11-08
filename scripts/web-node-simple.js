@@ -1,6 +1,3 @@
-/**
- * Created by jbrook on 07/11/13.
- */
 /************************************************
  FILENAME
  server_simple.js
