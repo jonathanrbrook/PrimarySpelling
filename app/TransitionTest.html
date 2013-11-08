@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Spelling Fireworks</title>
+
+    <link href="css/demo.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+  </head>
+
+  <body  class="animation container" ng-app="demo"  ng-controller="MainCtrl">
+
+  <style ng-bind-html-unsafe="style"></style>
+
+  <div class="cube container">
+      <div ng-view ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}" ></div>
+  </div>
+
+  <script type="text/ng-template" id="page1.html">
+      <div class="container " >
+          <div class="masthead">
+              <h1 class="muted">PAGE 1</h1>
+
+              <button class="btn display-button" ng-click="direction('front');go('/two')">Go Page 2</button>
+          </div>
+      </div>
+  </script>
+
+  <script type="text/ng-template" id="page2.html">
+      <div class="container " >
+          <div class="masthead">
+              <h1 class="muted">PAGE 1</h1>
+              <button  class="btn display-button" ng-click="direction('back');go('/one')"  >Go page 1</button>
+          </div>
+      </div>
+  </script>
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js"></script>
+  <script src="js/demo.js"></script>
+
+  </body>
+</html>

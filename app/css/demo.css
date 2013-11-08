@@ -1,0 +1,60 @@
+.animation{
+
+
+    -webkit-perspective:2000px;
+    -moz-perspective:2000px;
+    -o-perspective: 2000px;
+    perspective: 2000px;
+}
+
+.cube {
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+
+
+.animate-enter,
+.animate-leave {
+
+    -webkit-transition: 3000ms linear all;
+    -moz-transition: 3000ms linear all;
+    -ms-transition: 3000ms linear all;
+    -o-transition: 3000ms linear all;
+    transition: 3000ms linear all;
+    position: absolute;
+
+}
+
+.animate-enter {
+    background-color:green;
+    -webkit-transform: rotateY(   90deg ) translateZ(600px ) translateX(585px) ;
+    -moz-transform: rotateY(   90deg )  translateZ(600px ) translateX(585px);
+    -o-transform: rotateY(   90deg )  translateZ( 600px ) translateX(585px);
+    transform: rotateY(   90deg )   translateZ( 600px) translateX(585px);
+
+    opacity: 0;
+}
+
+.animate-enter.animate-enter-active{
+    background-color:yellow;
+
+    -webkit-transform: rotateY(  0deg ) translateX(250px) translateZ(400px );
+    -moz-transform: rotateY(  0deg ) translateX(250px) translateZ(400px );
+    -o-transform: rotateY(  0deg )translateX(250px) translateZ(401px );
+    transform: rotateY(  0deg )  translateX(250px) translateZ( 400px );
+    opacity: 1;
+}
+
+.animate-leave {
+    background-color:gray;
+    -webkit-transform: rotateY(  -90deg ) translateZ( 361px );
+    -moz-transform: rotateY(  -90deg ) translateZ( 361px );
+    -o-transform: rotateY( -90deg) translateZ( 361px );
+    transform: rotateY( -90deg) translateZ( 361px );
+    opacity: 0;
+}

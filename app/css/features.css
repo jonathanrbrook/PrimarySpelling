@@ -1,16 +1,17 @@
 body {
-	margin-top: 20px; /* 20px is the height of the navbar - change this if the navbarn height changes */
+    margin-top: 20px; /* 20px is the height of the navbar - change this if the navbarn height changes */
 }
+
 .hero-spacer {
-	margin-top: 40px;
+    margin-top: 40px;
 }
 
 .hero-feature {
-	margin-bottom: 20px;/* spaces out the feature boxes once they start to stack responsively */
+    margin-bottom: 20px; /* spaces out the feature boxes once they start to stack responsively */
 }
 
 footer {
-	margin: 10px 0;
+    margin: 10px 0;
 }
 
 .fireworkBackground {
@@ -24,3 +25,6 @@ footer {
 .center {
     text-align: center;
 }
+
+
+

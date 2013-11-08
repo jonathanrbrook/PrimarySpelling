@@ -10,9 +10,10 @@
 
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/features.css" rel="stylesheet">
+    <link href="css/fireworks.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="animation container" ng-app="app">
 
     <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
       <div class="container">
@@ -31,11 +32,8 @@
 
     <div class="container">
 
-        <div class="jumbotron hero-spacer" ng-app="app">
-            <ng-view></ng-view>
-
-
-
+        <div class="jumbotron hero-spacer">
+            <div ng-view ng-animate="{enter: 'enter', leave: 'leave'}"></div>
         </div>
 
       <footer>
